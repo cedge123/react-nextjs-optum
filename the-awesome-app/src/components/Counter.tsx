@@ -1,7 +1,7 @@
 // <Counter count={5} />
 'use client'
 
-import {ChangeEvent, useState,useRef } from "react";
+import {ChangeEvent, useState,useRef, useEffect } from "react";
 type CounterProps ={
     count: number;
 }
@@ -9,7 +9,12 @@ export default function Counter(props:CounterProps){
 
     const [count,setCount]= useState(props.count);
    // let count = props.count;
-   const inputRef = useRef<HTMLInputElement>(null)
+   const inputRef = useRef<HTMLInputElement>(null);
+   
+    useEffect(()=>{
+        console.log("count updated: "+count)
+    },[count]);
+
     function inc()
     {
         console.log("incrementing counter...")

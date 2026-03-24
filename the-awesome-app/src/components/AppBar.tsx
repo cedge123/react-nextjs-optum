@@ -15,6 +15,9 @@ export default function AppBar(){
                     <li className="nav-item">
                         <Link className="nav-link" href="/login">login</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" href="/products">products</Link>
+                    </li>
                 </ul>
             </div>
         </nav>        

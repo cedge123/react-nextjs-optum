@@ -1,5 +1,5 @@
 'use client'
-import { SubmitEvent, useState } from "react"
+import { SubmitEvent, useEffect, useRef, useState } from "react"
 import axios from 'axios'
 import { useRouter } from "next/navigation";
 
@@ -9,7 +9,20 @@ export default function Login(){
     const [password,setPassword] = useState("");
     const [message,setMessage] = useState("");
     const router = useRouter();
-    
+    const usernameRef = useRef<HTMLInputElement>(null);
+
+    // use effecte is invoked once when the component is mounted 
+    // and when dependents also get updated
+    console.log("login rendered")
+    useEffect(()=>{
+        console.log("login mounted");
+        usernameRef.current?.focus();
+        //when login unmounted
+        return ()=>{
+            console.log("login unmounted");
+        }
+    }, []);
+
     async function handleLogin(event:SubmitEvent<HTMLFormElement>){
         event.preventDefault();
         if(userName&&password){
@@ -36,7 +49,7 @@ export default function Login(){
             <form onSubmit={handleLogin}>
                 <div className="form-group">
                 <label htmlFor="username">UserName</label>
-                <input type="text" value={userName} onChange={(evt)=>{setUsername(evt.target.value)}} id="username" className="form-control" placeholder="User Id"/>
+                <input ref={usernameRef} type="text" value={userName} onChange={(evt)=>{setUsername(evt.target.value)}} id="username" className="form-control" placeholder="User Id"/>
                 </div>
                 <div className="form-group">
                 <label htmlFor="password">Password</label>
