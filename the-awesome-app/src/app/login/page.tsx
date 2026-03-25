@@ -2,6 +2,7 @@
 import { SubmitEvent, useEffect, useRef, useState } from "react"
 import axios from 'axios'
 import { useRouter } from "next/navigation";
+import useTitle from "@/hooks/useTitle";
 
 export default function Login(){
 
@@ -22,6 +23,13 @@ export default function Login(){
             console.log("login unmounted");
         }
     }, []);
+
+
+   // write in a reusabl hook across applicatin use!
+    // useEffect(()=>{
+    //     document.title = document.title+' Login';
+    // },[]}
+    useTitle("Login")
 
     async function handleLogin(event:SubmitEvent<HTMLFormElement>){
         event.preventDefault();

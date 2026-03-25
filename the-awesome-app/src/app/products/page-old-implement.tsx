@@ -6,7 +6,6 @@ import { Product } from "../models/product";
 import { useRouter } from "next/navigation";
 import { ProductView } from "./ProductView";
 import useTitle from "@/hooks/useTitle";
-import useProducts from "@/hooks/useProducts";
 
 const url = 'http://localhost:9000/products';
 
@@ -14,13 +13,25 @@ const url = 'http://localhost:9000/products';
 
 export default function ProductList(){
 
-
+    const[products, setProducts] = useState<Product[]>([]);
     const router = useRouter();
     useTitle("Product List")
 
     const [messagevisible, setMessageVisible] = useState<boolean>();
     console.log("product parent");
-    const {products, setProducts , fetchProducts} = useProducts();
+    useEffect(()=> {
+        fetchProducts();
+    },[]);
+
+    async function fetchProducts() {
+        try {
+            let response  = await axios.get<Product[]>(url);
+            console.log(response);
+            setProducts(response.data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
    const deleteProduct = useCallback(async (id:any)=> {
         try {
