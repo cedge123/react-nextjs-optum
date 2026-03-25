@@ -10,7 +10,7 @@ const url = 'http://localhost:9000/products';
 
 export default function EditPrduct(){
 
-    const[product, setProduct] = useState<Product>();
+    const[product, setProduct] = useState<Product>({});
 
    
   
@@ -81,15 +81,15 @@ export default function EditPrduct(){
             <form>
                 <div className="form-group">
                 <label htmlFor="username">ProductName</label>
-                 <input name="name" type="text" value={product?.name}  id="prodname" onChange={(evt)=>{setProduct({...product, name:evt.target.value})}} className="form-control" placeholder="productName"/>
+                 <input type="text" value={product?.name || ''}  id="prodname" onChange={(evt)=>{setProduct({...product, name:evt.target.value})}} className="form-control" placeholder="productName"/>
                 </div>
                 <div className="form-group">
                 <label htmlFor="price">price</label>
-                 <input name="price" type="text" value={product?.price}  id="price" onChange={(evt)=>{setProduct({...product, price:Number(evt.target.value)})}} className="form-control" placeholder="price"/>
+                 <input type="text" value={product?.price|| ''}  id="price" onChange={(evt)=>{setProduct({...product, price:Number(evt.target.value)})}} className="form-control" placeholder="price"/>
                 </div>
                 <div className="form-group">
                 <label htmlFor="description">description</label>
-                 <input  name="description" type="text" value={product?.description}  id="description" onChange={(evt)=>{setProduct({...product, description:evt.target.value})}} className="form-control" placeholder="description"/>
+                 <input type="text" value={product?.description|| ''}  id="description" onChange={(evt)=>{setProduct({...product, description:evt.target.value})}} className="form-control" placeholder="description"/>
                 </div>
                 <br/>
                 <button type="button" className="btn btn-success" onClick={updateProduct}>Save</button>&nbsp;&nbsp;

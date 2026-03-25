@@ -6,17 +6,20 @@ export default function AppBar(){
             <div className="container-fluid">
                 <Link className="navbar-brand" href="/">Next.js</Link>
                   <ul className="nav">
-                    <li className="nav-item">
-                        <Link className="nav-link "  href="/">Home</Link>
+                    <li className="nav-item" >
+                        <Link style={{color:"white"}} className="nav-link "  href="/">Home</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" href="/about">about</Link>
+                    <li className="nav-item" >
+                        <Link style={{color:"white"}} className="nav-link" href="/about">about</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" href="/login">login</Link>
+                    <li className="nav-item" >
+                        <Link style={{color:"white"}} className="nav-link" href="/login">login</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" href="/products">products</Link>
+                    <li className="nav-item" >
+                        <Link style={{color:"white"}} className="nav-link" href="/products">products</Link>
+                    </li>
+                    <li className="nav-item" >
+                        <Link style={{color:"white"}} className="nav-link" href="/gadgets">gadgets</Link>
                     </li>
                 </ul>
             </div>

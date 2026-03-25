@@ -4,7 +4,7 @@
     margin: 7px;
     padding: 7px;
     border-radius: 10px;
-    height: 250px;
+    height: auto;
     width: 300px;
     color: white;
 }
