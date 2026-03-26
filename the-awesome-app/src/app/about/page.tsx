@@ -1,4 +1,6 @@
-export default function About(){
+export default async function About(){
+    //delay in 3sec
+    await new Promise(resolve=> setTimeout(resolve, 3000));
  
     return (
         <div className="alert alert-info">

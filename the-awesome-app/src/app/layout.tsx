@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AppBar from "@/components/AppBar";
 import ReduxProvider from "@/redux/ReduxProvider";
+import { AppThemeContext, AppThemeContextProvider } from "@/context/AppThemeContext";
 
 
 const geistSans = Geist({
@@ -29,14 +30,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* server componet allows client components, 
+         so create seperate client Components intead of making it to client compnent */}
         <ReduxProvider>
-          <div className="container">
-            {/* header */}
-            <AppBar/>
-            <main>
-                  {children} 
-            </main>
-          </div>
+           <AppThemeContextProvider>
+              <div className="container">
+                {/* header */}
+                <AppBar/>
+                <main>
+                      {children} 
+                </main>
+              </div>
+          </AppThemeContextProvider>
         </ReduxProvider>
       </body>
     </html>

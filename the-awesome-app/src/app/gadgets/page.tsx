@@ -4,23 +4,27 @@ import useProducts from '@/hooks/useProducts';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Product } from '../models/product';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/redux/store';
+import { addToCart as addToStore } from '@/redux/gadgetsReducer';   
 
 
 function GadgetStore(){
 
     const {products, setProducts} = useProducts();
+    const  dispath = useDispatch<AppDispatch>();
     
     
 
     function addToCart(product: Product): void {
-        
+        const action = addToStore({product,quantity:1})
+        dispath(action)
     }
 
     function renderProducts() {
 
         const productsView =  products.map((item) => {
            
-
             return (
                 <div className="col" key={item.id} >
                     <div className="card border-warning" >

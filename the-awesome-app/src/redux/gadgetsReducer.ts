@@ -7,23 +7,39 @@ export type GadgetState = {
     
 }
 const initialState: GadgetState = {
-    cart: [],
-    
+    cart: []
 }
 
 //action: {type: "addtocart", payload: CartItem}
 //action: {type: "removeitem", id: 1}
-export const gadgetsReducer = (state=initialState, action) => {
 
-    if(action.type === "addtocart" && action.payload){
+// export const gadgetsReducer = (state=initialState, action:PayloadAction) => {
+//     if(action.type === "addtocart" && action.payload){
 
-        //state.cart.push(action.payload);
-        const cart = [...state.cart];
-        cart.push(action.payload);
-        return {
-            ...state,
-            cart: cart,
-        }
+//         //state.cart.push(action.payload);
+//         const cart = [...state.cart];
+//         cart.push(action.payload);
+//         return {
+//             ...state,
+//             cart: cart,
+//         }
+//     }
+//     return state;
+// }
+
+const gadgetSlice = createSlice({
+    name:"gadgetslice",
+    initialState:initialState,
+    reducers:{
+      addToCart:(state, action:PayloadAction<CartItem>)=>{
+           state.cart.push(action.payload);
+      },
+      removeCartItem:(state, action:PayloadAction<number>) =>{
+        const index = state.cart.findIndex(item=> item.product.id === action.payload);
+        state.cart.splice(index,1);
+      }
     }
-    return state;
-}
+})
+
+export const {addToCart,removeCartItem} = gadgetSlice.actions;
+export const  gadgetsReducer  = gadgetSlice.reducer;

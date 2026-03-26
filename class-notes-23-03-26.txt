@@ -1,0 +1,118 @@
+React-Nextjs session 23-03-2026
+
+Git Url: https://github.com/aniljos/Nextjs-Feb-24-2025
+REST API Mock: https://github.com/aniljos/REST-API-Mock
+
+React CDN Links: https://legacy.reactjs.org/docs/cdn-links.html
+Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
+
+Introduction: https://forms.gle/JJUREb7AcNcX5TXv5
+Quiz #1: https://forms.gle/qjXX2bLjauSy7D5LA
+Quiz #2: https://forms.gle/TTbaJ5xTtf5LfM8w9
+Quiz #3: https://forms.gle/nqXeDHsZ8qLXoRUH7
+
+
+React Components
+
+Types of components(based on coding): Functional and Class
+Types of components( based on rendering): client-side rendering(CSR) and server-side rendering(SSR)
+
+In Nextjs: default rendering is SSR
+
+-React Component props
+	- parameterize a component
+	- passing data from parent to child and vice-versa
+	- changes to props will re-render the component
+	- props is read-only
+React Component state
+	- internal to the component
+	- changes to state will re-render the component
+	- state changes are asynchronous
+	- state changes are batches
+	- setState
+		- setState(updatedValue)
+		- setState(callback)   (updatedValue callback(prevValue))
+React effects(useEffect)
+	- Hook into the lifecycle
+	- mount: 
+		- called once the component is mounted
+		- dependency array is empty
+		- API calls 
+		- DOM initialization
+		- Register to any events(document/window)
+	-unmount
+		- called once when the component is unmounted
+		- cancel the api calls
+		- Unregister to any events(document/window)
+	- update
+		- called when the component is rerendered
+		
+
+
+input element
+	- binding using state(useState) => value, onChange : Controlled input
+	- Reference(useRef) to the input and read the value : Uncontrolled input
+
+Navigation in React	
+	- There no apis that React provides for Navigation
+	- react-router-dom: 
+		- library for navigation
+		- Create-React-App or Vite 
+	- Next.js has a nvagiation library(The App and Page router)
+				
+React Design & Optimizations
+	- Components are granular( small components)
+	- Custom Hooks: reuseable, function thats uses existing hooks.
+	- memoization: 
+		- like caching 
+		- React.memo(component)
+		- The component re-renders only if the props or state changes
+
+Session State(in the browser)
+	- LocalStorage & SessionStorage
+	- Cookies
+	- Memory
+	
+Redux
+	- Action is an object with a type & a payload
+		- {type: "save_token", token: "abc"}
+		- {type: "clear_token"}
+	- Reducer is a function 
+		- receives the actions
+		- updates the store
+React-redux
+	- Provider: component to integrate the store with the react application
+	- Hooks	
+		- useDispatch: returns the dispatch method
+		- useStore: returns a reference to the store
+		- useSelector: return a subset(of the state) in redux and subscribe to the store
+Redux Tooklit
+	- implementations of redux patterns
+	- opiniontaed framework
+	-slices => alernative to reducers
+	- treat state as mutable
+	- genarates reducer code
+	-genarates the action creater (actions creators )
+
+-State Management libraries
+  react context
+  mobs
+
+
+-client component
+   rerendered and hydrated(invoke effect, state..etc and html genarates.) in the browser
+   can be used React hooks like useState,useEffect,redux..etc
+-server component
+   rendered on the server with no client-side java script and available with the app router!
+   available from the nexjs 13 with app router
+   can not use client side hooks like useState, useEffect, redux,react context.. etc onclick..
+   integrate-> server component work along with the client component, providing 
+   seemless developer experience within the same react tree
+   server component ideal for fetching data from databases or APIs without exposing sensitive logic to the client.
+   mainly for static content!
+
+
+ 	
+	
+
+
