@@ -1,5 +1,5 @@
 'use client'
-import React,{JSX, useState} from "react";
+import React, {JSX, useState} from "react";
 
 export type ThemeState = {
     mode:string
@@ -13,7 +13,7 @@ const initialState:ThemeState = {
     }
 }
 
-export const AppThemeContext = React.createContext({initialState});
+export const AppThemeContext = React.createContext(initialState);
 
 export function AppThemeContextProvider({children}:{children:JSX.Element}){
 

@@ -11,6 +11,13 @@ Quiz #1: https://forms.gle/qjXX2bLjauSy7D5LA
 Quiz #2: https://forms.gle/TTbaJ5xTtf5LfM8w9
 Quiz #3: https://forms.gle/nqXeDHsZ8qLXoRUH7
 
+-deploymnet
+-dev run     
+ ->npm run dev 
+
+-prod run
+  -> npm run build
+  -> npm start 
 
 React Components
 
@@ -110,6 +117,41 @@ Redux Tooklit
    seemless developer experience within the same react tree
    server component ideal for fetching data from databases or APIs without exposing sensitive logic to the client.
    mainly for static content!
+
+-static page(SSG - Static Site Generation)
+ pre-rendered as static content
+ will be prepared and keep ready at the time of build its self and catched,
+ it will rerender again after app run will be used from cache only
+ How to make static to SSG(ssr) ?
+   //making force full dynamic - option 1
+    const contentTypeHeader = (await headers()).get("Content-Type")
+   //making force full dynamic - option 2
+    export const dynamic = 'force-dynamic';
+
+
+-dynamic page(SSR- Server Side Rendering)
+  rendered as content on demand or on request!
+  as componet has props and params then contnet will be dynamic loaded.
+
+-incrementail staic genarate(ISG)
+ // This tells Next.js to regenerate this page at most every 60 seconds
+ export const revalidate = 60;
+
+
+-Next js is a fullstack framework.
+	there are several ways to create and exposr backend APIS,
+	API routes the traditional way we use is with page router 
+
+	rout handlers:
+	 route handlers are used to define ai endpoints in next js when using app router
+
+   file based routing
+    api routes are created by defining route.ts or route.js	 
+
+
+
+
+
 
 
  	

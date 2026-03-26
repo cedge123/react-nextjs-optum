@@ -37,6 +37,9 @@ export default function AppBar(){
                      <li className="nav-item" >
                         <Link  className="nav-link" href="/customers">Customers</Link>
                     </li>
+                     <li className="nav-item" >
+                        <Link  className="nav-link" href="/supliers">Suppliers</Link>
+                    </li>
 
                     <li className="nav-item" >
                         <button  className="btn btn-warning" onClick={handleSwitchTheme}>SwitchTheme</button>
