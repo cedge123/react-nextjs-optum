@@ -1,5 +1,6 @@
 import SearchSuppliers from "./SearchSuppliers";
-
+// this server component we should not write any hooks,
+// it just have plain db or api logic to feath data!
 export default async function SuppliersPage() {
 
     async function fetchSuppliers(query?: any) {

@@ -58,7 +58,7 @@ export default function SearchSuppliers({ data}: SearchSuppliers) {
                             placeholder="Search supplier..."
                             value={searchTerm}
                             onChange={(evt) => setSearchTerm(evt.target.value)}></input>
-                    </div>
+                    </div><br/>
                     <button type="button" className="btn btn-success" onClick={search}>Search</button>
                 </form>
             </div>

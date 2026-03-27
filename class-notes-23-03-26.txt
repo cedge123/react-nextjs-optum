@@ -148,6 +148,23 @@ Redux Tooklit
    file based routing
     api routes are created by defining route.ts or route.js	 
 
+-next js Features
+ -full-stack framework
+ -file-based routing
+ -clientside rendering
+ -server side rendering
+ -static site genaratation SSG
+ -incremental static regeneratation ISR
+ -hybrid rendering
+ -api routes
+ -automatic code spliting 
+ -built in css saas support
+ 
+
+
+
+
+
 
 
 
