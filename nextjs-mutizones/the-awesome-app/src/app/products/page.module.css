@@ -1,0 +1,10 @@
+.product{
+    background-color: rgb(47, 110, 164);
+    border: 2px solid blue;
+    margin: 7px;
+    padding: 7px;
+    height: 250px;
+    width: 290px;
+    border-radius: 10px;
+    
+}   
