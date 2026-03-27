@@ -8,6 +8,8 @@ type SearchSuppliers = {
     data: Supplier[]
 }
 
+// client component
+
 export default function SearchSuppliers({ data}: SearchSuppliers) {
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -46,7 +48,8 @@ export default function SearchSuppliers({ data}: SearchSuppliers) {
 
 
     return (
-        <div>
+        // jsx should have at least one parent so instead div we use fragemnt <> </>
+         <> 
             <div>
                 <form>
                     <div className="form-group">
@@ -95,7 +98,6 @@ export default function SearchSuppliers({ data}: SearchSuppliers) {
                     )}
                 </tbody>
             </table>
-
-        </div>
+        </>
     )
 }

@@ -1,5 +1,5 @@
 React-Nextjs session 23-03-2026
-
+Git Url:https://github.com/aniljos/react-nextjs-march-2026/
 Git Url: https://github.com/aniljos/Nextjs-Feb-24-2025
 REST API Mock: https://github.com/aniljos/REST-API-Mock
 
@@ -159,12 +159,20 @@ Redux Tooklit
  -api routes
  -automatic code spliting 
  -built in css saas support
- 
+
+ -fragment <></>
+  -in jsx should have at least one parent element so instead div we use fragemnt <> </> 
+   so it will not accupy any space in dom
 
 
+-MFE micro frontends approaches
+	Webpack Module Federation
+	Single APA 
+	Piral
+	Luigi
 
-
-
+-vite does not use webpack it uses rollerconfig
+-next js uses Turbopack 
 
 
 

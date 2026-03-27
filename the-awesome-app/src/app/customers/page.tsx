@@ -34,7 +34,7 @@ export async function CustomersPage({ timeout }: { timeout: number }) {
     const customers = await response.json() as Customer[];
     return (
         <div className="container">
-            <h5>Customers</h5>
+            <h5 id="customers">Customers</h5>
             <div>
                 <table className="table table-striped">
                     <thead>

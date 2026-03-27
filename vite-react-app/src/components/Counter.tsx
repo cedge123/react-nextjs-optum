@@ -1,7 +1,7 @@
 // <Counter count={5} />
 'use client'
 
-import {ChangeEvent, useState,useRef, useEffect } from "react";
+import {type ChangeEvent, useState,useRef, useEffect } from "react";
 type CounterProps ={
     count: number;
 }
