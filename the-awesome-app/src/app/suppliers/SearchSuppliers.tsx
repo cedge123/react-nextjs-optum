@@ -2,23 +2,46 @@
 import Link from "next/link"
 import { Supplier } from "../models/Supplier"
 import { useState } from "react"
+import axios from "axios"
 
 type SearchSuppliers = {
     data: Supplier[]
 }
 
-export default function SearchSuppliers({ data }: SearchSuppliers) {
+export default function SearchSuppliers({ data}: SearchSuppliers) {
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [dataA, setDataA] = useState(data);
+    const [suppliers, setSuppliers] = useState(data);
+    
+    // ui filter logic
+    const searchSuppliers = (searchTerm:any) => {
+        // Always filter from the ORIGINAL 'data', not the 'filteredData'
+        const results = data.filter((item) => {
+            setSearchTerm(searchTerm)
+            const term = searchTerm.toLowerCase();
 
-    // The Search Logic
-    const searchSuppliers =() => dataA.filter((item) =>
-        item.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-        item.contactPerson.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-        item.email.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
-        item.location.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
-    )
+            return (
+                item.name.toLowerCase().includes(term) ||
+                item.contactPerson.toLowerCase().includes(term) ||
+                item.email.toLowerCase().includes(term) ||
+                item.location.toLowerCase().includes(term)
+            );
+        });
+
+        // Update the state used for rendering
+        setSuppliers(results);
+    };
+
+    
+    async function search(){
+        try {
+            const url = "http://localhost:3000/api/suppliers?q=" + searchTerm;
+            const response = await axios.get<Supplier[]>(url);
+            setSuppliers(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
 
@@ -33,10 +56,10 @@ export default function SearchSuppliers({ data }: SearchSuppliers) {
                             id="suplier-search"
                             className="form-control"
                             placeholder="Search supplier..."
-                            value={searchTerm} 
+                            value={searchTerm}
                             onChange={(evt) => setSearchTerm(evt.target.value)}></input>
                     </div>
-                    <button type="button" className="btn btn-success" onClick={searchSuppliers}>Search</button>
+                    <button type="button" className="btn btn-success" onClick={search}>Search</button>
                 </form>
             </div>
             <table className="table table-striped">
@@ -60,10 +83,10 @@ export default function SearchSuppliers({ data }: SearchSuppliers) {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((suplier) => (
+                    {suppliers.map((suplier) => (
                         <tr key={suplier.id}>
                             <td>{suplier.id}</td>
-                            <td><Link href={"/customers/" + suplier.id}>{suplier.name}</Link></td>
+                            <td>{suplier.name}</td>
                             <td>{suplier.contactPerson}</td>
                             <td>{suplier.email}</td>
                             <td>{suplier.location}</td>
